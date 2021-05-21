@@ -8,18 +8,18 @@ function Header(props) {
 
     function signOut() {
         localStorage.removeItem('jwt');
-        history.push('/sign-in');
+        history.push('/signin');
     }
     return (
       <header className="header">
-            <a className="header__link" href="#" target="_blank">
+            <a className="header__link" href="/" target="_blank">
             <img className="header__logo" src={logoPath} alt="Логотип портала Mesto" />
             </a>
-            <Route path="/sign-in">
-                <Link className="header__link header__menu-link" to="/sign-up">Регистрация</Link>
+            <Route path="/signin">
+                <Link className="header__link header__menu-link" to="/signup">Регистрация</Link>
             </Route>
-            <Route path="/sign-up">
-                <Link className="header__link header__menu-link" to="/sign-in">Войти</Link>
+            <Route path="/signup">
+                <Link className="header__link header__menu-link" to="/signin">Войти</Link>
             </Route>
             <Route exact path="/">
             <ul className="header__navigation">

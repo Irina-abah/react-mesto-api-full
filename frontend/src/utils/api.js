@@ -106,7 +106,7 @@ export class Api {
 }
 
 const api = new Api({
-    address: "http://localhost:3005",
+    address: "https://api.mesto.nomoredomains.club",
     headers: {
       authorization: `Bearer ${localStorage.getItem('jwt')}`,
     //   authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGE3OTE5MWU1MTJjN2ViNjBlODM3ZDAiLCJpYXQiOjE2MjE2MDA5NDUsImV4cCI6MTYyMjIwNTc0NX0.BNsqN_ETQ45qnYTvYVDMTYHccE2lRy_8myZbCbjW43s',

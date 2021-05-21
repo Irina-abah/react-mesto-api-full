@@ -97,18 +97,6 @@ function App() {
 
   // загрузка карточек и данных о пользоватете
 
-  // React.useEffect(() => {
-  //   if (loggedIn) {
-  //     Promise.all([api.getUserData(), api.getInitialCards()])
-  //     .then(([myData, initialCards]) => {
-  //       // console.log(myData);
-  //       setCurrentUser(myData);
-  //       setCards(initialCards);
-  //     })
-  //     .catch((err) => console.log(err));
-  //   }    
-  //   }, [loggedIn]);
-
   React.useEffect(() => {
     if (loggedIn) {
       let token = localStorage.getItem('jwt');

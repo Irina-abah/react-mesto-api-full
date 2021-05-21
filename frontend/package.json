@@ -1,6 +1,6 @@
 {
-  "name": "mesto-react",
-  "homepage": "https://irina-abah.github.io/mesto-react/",
+  "name": "mesto",
+  "homepage": "https://mesto.nomoredomains.club",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
