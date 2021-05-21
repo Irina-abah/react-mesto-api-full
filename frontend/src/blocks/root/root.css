@@ -1,0 +1,25 @@
+.root {
+    width: calc(100% - 191.5px*2);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 45px 0 60px;
+}
+
+@media (max-width: 1279px) {
+    .root {
+        width: calc(100% - 70px*2);
+        padding: 28px 0 36px;
+    }
+
+}
+
+@media (max-width: 775px) {
+    .root {
+        width: 100%;
+        padding: 28px 0 36px;
+    }
+
+}

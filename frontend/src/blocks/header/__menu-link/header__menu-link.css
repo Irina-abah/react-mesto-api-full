@@ -1,0 +1,12 @@
+.header__menu-link {
+    font-size: 18px;
+    line-height: 1.22;
+}
+
+@media (max-width: 775px) {
+    
+    .header__menu-link {
+        font-size: 14px;
+    }
+
+}

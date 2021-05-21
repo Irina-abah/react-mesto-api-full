@@ -1,0 +1,21 @@
+.button_type_close-preview {
+    background: url(../../../images/close-button.svg) center no-repeat;
+    width: 40.7px;
+    height: 40.7px;
+    position: absolute;
+    top: -41px;
+    right: -41px;
+    padding: 0;
+    margin: 0;
+    
+}
+
+@media (max-width: 480px) {
+
+    .button_type_close-preview {
+        top: -34px;
+        right: -34px;
+        background-size: 40px;
+    }
+
+}

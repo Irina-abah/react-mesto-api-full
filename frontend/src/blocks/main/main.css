@@ -1,0 +1,7 @@
+@media (max-width: 1054px) {
+    .main {
+        width: calc(100% - 19px*2);
+        margin: 0 auto;
+    }
+
+}

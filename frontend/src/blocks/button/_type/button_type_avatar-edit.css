@@ -1,0 +1,17 @@
+.button_type_avatar-edit {
+    background: url(../../../images/edit-icon.svg) center no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+}
+
+ .button_type_avatar-edit:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, .8);
+    transition: opacity 0.7s ease;
+ }

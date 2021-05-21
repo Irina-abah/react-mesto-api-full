@@ -1,0 +1,11 @@
+.place__info {
+    display: grid;
+    grid-template-columns: auto 21px;
+    align-items: center;
+    background-color: #fff;
+    padding: 0 18px;
+    box-sizing: border-box;
+    border-radius: 0 0 10px 10px;
+    min-height: 79px;
+    margin: 0;
+}

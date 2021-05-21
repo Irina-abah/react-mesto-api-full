@@ -1,0 +1,17 @@
+.popup__input_type_sign {
+    background-color: #000;
+    border-bottom: 2px solid #CCCCCC;
+    color: #CCCCCC;
+}
+
+.popup__input_type_sign::placeholder {
+    color: #CCCCCC;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    transition: background-color 5000s;
+  -webkit-text-fill-color: #CCCCCC !important;
+}

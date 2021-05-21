@@ -1,0 +1,23 @@
+.profile__bio {
+    display: grid;
+    grid-template-columns: minmax(min-content, max-content) 24px;
+    align-items: baseline;
+    padding-right: 30px;
+}
+
+/* Добавила отдельное правило, поскольку свойство baseline работает некорректно в FF и ломает верстку */
+@-moz-document url-prefix() {
+
+    .profile__bio {
+        align-items: center;
+    }
+    
+}
+
+@media (max-width: 1054px) {
+
+    .profile__bio {
+        padding-right: 0;
+    }
+
+}

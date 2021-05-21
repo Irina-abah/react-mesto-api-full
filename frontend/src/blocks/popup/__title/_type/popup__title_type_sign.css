@@ -1,0 +1,12 @@
+.popup__title_type_sign {
+    color: #fff;
+    margin: 0 auto 54px;
+}
+
+@media (max-width: 775px) {
+    
+    .popup__title_type_sign {
+        font-size: 20px;
+    }
+
+}

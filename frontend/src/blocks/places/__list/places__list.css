@@ -1,0 +1,17 @@
+.places__list {
+    display: grid;
+    row-gap: 22px; /* судя по всему в макете опечатка: 744px (высота всего блока) - 361px*2 = 22px */
+    column-gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+    padding: 0;
+    min-height: 744px;
+    margin: 0;
+}
+
+@media (max-width: 775px) {
+    
+    .places__list {
+        row-gap: 20px;
+    }
+
+}

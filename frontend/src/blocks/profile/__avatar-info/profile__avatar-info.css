@@ -1,0 +1,13 @@
+.profile__avatar-info {
+    display: flex;
+    margin: auto;
+    position: relative;
+}
+
+@media (max-width: 1054px) {
+
+    .profile__avatar-info {
+        margin: 0 0 24px 0;
+    }
+
+}

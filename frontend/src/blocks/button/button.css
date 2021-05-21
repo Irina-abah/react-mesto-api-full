@@ -1,0 +1,16 @@
+.button {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    border-radius: 2px;
+}
+
+.button:hover {
+    opacity: 0.6;
+    transition: all 0.7s ease;
+}
+
+.button:focus {
+    outline: 0;
+    box-shadow: none;
+}

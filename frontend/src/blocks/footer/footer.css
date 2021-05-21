@@ -1,0 +1,15 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 31.6px;
+}
+
+@media (max-width: 775px) {
+    .footer {
+    width: calc(100% - 19px*2);
+    padding-bottom: 31.6px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+}

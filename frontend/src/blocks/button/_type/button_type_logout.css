@@ -1,0 +1,15 @@
+.button_type_logout {
+    color: #A9A9A9;
+    background: none;
+    font-size: 18px;
+    line-height: 1.22;
+    margin-left: 24px;
+}
+
+@media (max-width: 775px) {
+    
+    .button_type_logout {
+        font-size: 14px;
+    }
+
+}
