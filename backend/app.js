@@ -57,7 +57,7 @@ app.post('/signup', celebrate({
 app.use('/users', auth, require('./routes/users'));
 app.use('/cards', auth, require('./routes/cards'));
 
-app.use('/*', () => {
+app.use('*', () => {
   throw new NotFoundError('Ресурс не найден');
 });
 
