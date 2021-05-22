@@ -39,34 +39,35 @@ function App() {
 
   // проверка токена, авторизация и регистрация
 
-  const handleLogin = ({email, password}) => {
-    return auth.authorize({email, password})
-    .then((data) => {
-        if (!data) throw new Error('Неверные имя пользователя или пароль')
-          if (data.token) {
-            setLoggedIn(true)
-            localStorage.setItem('jwt', data.token)
-            history.push('/cards')
-            return data
-        }
-    })
+const handleLogin = ({email, password}) => {
+
+  return auth.authorize({email, password})
+  .then((data) => {
+      if (!data) throw new Error('Неверные имя пользователя или пароль')
+      if (data.token) {
+        setLoggedIn(true)
+        localStorage.setItem('jwt', data.token)
+        history.push('/')
+        return data
+      }
+  })
 };
 
-  const tokenCheck = () => {
-    if (localStorage.getItem('jwt')) {
-        let jwt = localStorage.getItem('jwt');
-        auth.getContent(jwt)
-        .then((res) => {
-            if (res) {
-                setLoggedIn(true)
-                setEmail(res.data.email)
-                history.push('/')
-                return res
-            }
-        })
-        .catch((err) => console.log(err));
-    }
-};
+//   const tokenCheck = () => {
+//     if (localStorage.getItem('jwt')) {
+//         let jwt = localStorage.getItem('jwt');
+//         auth.getContent(jwt)
+//         .then((res) => {
+//             if (res) {
+//                 setLoggedIn(true)
+//                 setEmail(res.data.email)
+//                 history.push('/')
+//                 return res
+//             }
+//         })
+//         .catch((err) => console.log(err));
+//     }
+// };
 
   const handleRegister = ({email, password}) => {
       return auth.register({email, password})
@@ -86,8 +87,20 @@ function App() {
   };
 
   React.useEffect(() => {
-    tokenCheck()
-  }, [loggedIn]);
+    if (localStorage.getItem('jwt')) {
+      let jwt = localStorage.getItem('jwt');
+      auth.getContent(jwt)
+      .then((res) => {
+          if (res) {
+              setLoggedIn(true)
+              setEmail(res.data.email)
+              history.push('/')
+              return res
+          }
+      })
+      .catch((err) => console.log(err));
+  }
+  }, [history, loggedIn]);
 
   React.useEffect(() => {
     if (loggedIn) {
@@ -99,19 +112,21 @@ function App() {
 
   React.useEffect(() => {
     if (loggedIn) {
-      let token = localStorage.getItem('jwt');
-      console.log(token);
-      Promise.all([api.getUserData(token), api.getInitialCards(token)])
-      .then(([myData, initialCards]) => {
-        console.log(myData);
-        setCurrentUser(myData);
-        if (Array.isArray(initialCards)) {
-          setCards(initialCards);
-        }
-      })
-      .catch((err) => console.log(err));
-    }    
-    }, [loggedIn]);
+
+      Promise.all([api.getUserData(), api.getInitialCards()])
+        .then(([myData, initialCards]) => {
+          console.log(myData)
+          console.log(initialCards)
+          setCurrentUser(myData.data);
+          if (Array.isArray(initialCards.data)) {
+            setCards(initialCards.data);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [loggedIn]);
 
 // закрытие попапов по нажатию на Esc
 

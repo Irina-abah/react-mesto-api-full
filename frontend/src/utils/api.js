@@ -12,9 +12,9 @@ export class Api {
         return Promise.reject(`Error ${res.status}`)
     }
 
-    getInitialCards() {
+    getInitialCards(token) {
         return fetch(`${this._address}/cards`, {
-            method: 'GET',
+            // method: 'GET',
             headers: this._headers
         })
         .then((res) => {
@@ -22,9 +22,9 @@ export class Api {
         })
     }
 
-    getUserData() {
+    getUserData(token) {
         return fetch(`${this._address}/users/me`, {
-            method: 'GET',
+            // method: 'GET',
             headers: this._headers
         })
         .then(res => {
@@ -103,13 +103,17 @@ export class Api {
         })
     }
 
+    setToken() {
+    this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`;
+  }
+
 }
 
 const api = new Api({
-    address: "https://api.mesto.nomoredomains.club",
+    // address: "https://api.mesto.nomoredomains.club",
+    address: "http://localhost:3005",
     headers: {
       authorization: `Bearer ${localStorage.getItem('jwt')}`,
-    //   authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGE3OTE5MWU1MTJjN2ViNjBlODM3ZDAiLCJpYXQiOjE2MjE2MDA5NDUsImV4cCI6MTYyMjIwNTc0NX0.BNsqN_ETQ45qnYTvYVDMTYHccE2lRy_8myZbCbjW43s',
       "Content-Type": "application/json"
     }
 });

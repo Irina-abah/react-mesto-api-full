@@ -11,7 +11,7 @@ const NotFoundError = require('./errors/not-found-error');
 
 const app = express();
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3005 } = process.env;
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
