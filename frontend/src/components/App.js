@@ -99,8 +99,8 @@ const handleLogin = ({email, password}) => {
 
       Promise.all([api.getUserData(), api.getInitialCards()])
         .then(([myData, initialCards]) => {
-          console.log(myData)
-          console.log(initialCards)
+          // console.log(myData)
+          // console.log(initialCards)
           setCurrentUser(myData);
           if (Array.isArray(initialCards)) {
             setCards(initialCards);
@@ -157,13 +157,11 @@ function handleCardLike(card) {
     api.removeLikeCard(card._id)
     // console.log(card)
     .then((newCard) => {
-
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
     })
     .catch((err) => console.log(err));
   } else {
     api.addLikeCard(card._id)
-
     .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
     })
