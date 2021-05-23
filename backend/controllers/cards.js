@@ -60,7 +60,7 @@ const likeCard = (req, res, next) => {
     { new: true },
   )
     .orFail(new Error('NotFound'))
-    .then((card) => res.status(RESPONSE_OK).send({ data: card }))
+    .then((card) => res.status(RESPONSE_OK).send(card))
     .catch((err) => {
       if (err.name === 'CastError') {
         throw new BadRequestError('Не удалось поставить лайк карточке');
@@ -78,7 +78,7 @@ const dislikeCard = (req, res, next) => {
     { new: true },
   )
     .orFail(new Error('NotFound'))
-    .then((card) => res.status(RESPONSE_OK).send({ data: card }))
+    .then((card) => res.status(RESPONSE_OK).send(card))
     .catch((err) => {
       if (err.name === 'CastError') {
         throw new BadRequestError('Не удалось убрать лайк с карточки');
