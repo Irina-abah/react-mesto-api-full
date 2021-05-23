@@ -61,7 +61,7 @@ export class Api {
     }
 
     addLikeCard(card) {
-        return fetch(`${this._address}/cards/likes/${card}`, {
+        return fetch(`${this._address}/cards/${card}/likes`, {
             method: 'PUT',
             headers: this._headers
         })
@@ -71,7 +71,7 @@ export class Api {
     }
 
     removeLikeCard(card) {
-        return fetch(`${this._address}/cards/likes/${card}`, {
+        return fetch(`${this._address}/cards/${card}/likes`, {
             method: 'DELETE',
             headers: this._headers
         })
@@ -102,10 +102,6 @@ export class Api {
             return this._checkResponse(res)
         })
     }
-
-    setToken() {
-    this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`;
-  }
 
 }
 

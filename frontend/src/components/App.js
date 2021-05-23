@@ -53,22 +53,6 @@ const handleLogin = ({email, password}) => {
   })
 };
 
-//   const tokenCheck = () => {
-//     if (localStorage.getItem('jwt')) {
-//         let jwt = localStorage.getItem('jwt');
-//         auth.getContent(jwt)
-//         .then((res) => {
-//             if (res) {
-//                 setLoggedIn(true)
-//                 setEmail(res.data.email)
-//                 history.push('/')
-//                 return res
-//             }
-//         })
-//         .catch((err) => console.log(err));
-//     }
-// };
-
   const handleRegister = ({email, password}) => {
       return auth.register({email, password})
       .then((res) => {
@@ -166,16 +150,20 @@ function handleCardClick(card) {
 // лайк карточки 
 
 function handleCardLike(card) {
+
   const isLiked = card.likes.some(i => i === currentUser._id);
   
   if (isLiked) {
     api.removeLikeCard(card._id)
+    // console.log(card)
     .then((newCard) => {
+
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
     })
     .catch((err) => console.log(err));
   } else {
     api.addLikeCard(card._id)
+
     .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
     })
@@ -204,7 +192,7 @@ function handleConfirmDelete(card) {
 function handleAddPlaceSubmit(place) {
   api.addCard(place)
   .then((newCard) => {
-    setCards([newCard, ...cards]);
+    setCards([newCard.data, ...cards]);
     closePopups()
   })
   .catch((err) => {
@@ -218,7 +206,7 @@ function handleUpdateUser(user) {
 
   api.changeUserData(user)
   .then((data) => {
-    setCurrentUser(data);
+    setCurrentUser(data.data);
     closePopups()
   })
   .catch((err) => {
@@ -229,7 +217,7 @@ function handleUpdateUser(user) {
 function handleUpdateAvatar(user) {
   api.editAvatar(user)
   .then((data) => {
-    setCurrentUser(data);
+    setCurrentUser(data.data);
     closePopups()
   })
   .catch((err) => {

@@ -33,7 +33,7 @@ function Main(props) {
                     onCardClick={props.onCardClick}
                     card={card}
                     />
-                ))
+                )).reverse()
                 }
                 </ul>
             </section>

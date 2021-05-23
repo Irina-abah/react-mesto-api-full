@@ -11,10 +11,12 @@ const getAllCards = (req, res, next) => {
 };
 
 const createCard = (req, res, next) => {
-  const { name, link } = req.body;
+  const { name, link, likes } = req.body;
   const owner = req.user._id;
 
-  Card.create({ name, link, owner })
+  Card.create({
+    name, link, likes, owner,
+  })
     .then((card) => {
       Card.findById(card._id)
         .populate('owner')
