@@ -14,14 +14,16 @@ const app = express();
 // const { PORT = 3005 } = process.env;
 const { PORT = 3000 } = process.env;
 
-// const limiter = rateLimit({
-//   windowMs: 15 * 60 * 1000,
-//   max: 100,
-//   message: 'Слишком много запросов, пожалуйста попробуйте позже',
-// });
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: 'Слишком много запросов, пожалуйста попробуйте позже',
+});
 
-app.use(cors());
-// app.use(limiter);
+app.use(cors({
+  origin: 'https://express-mesto.nomoredomains.club',
+}));
+app.use(limiter);
 app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
