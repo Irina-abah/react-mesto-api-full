@@ -106,8 +106,8 @@ export class Api {
 }
 
 const api = new Api({
-    // address: "https://api.mesto.nomoredomains.club",
-    address: "http://localhost:3005",
+    address: "https://api.mesto.nomoredomains.club",
+    // address: "http://localhost:3005",
     headers: {
       authorization: `Bearer ${localStorage.getItem('jwt')}`,
       "Content-Type": "application/json"
