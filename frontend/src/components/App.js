@@ -77,7 +77,7 @@ const handleLogin = ({email, password}) => {
       .then((res) => {
           if (res) {
               setLoggedIn(true)
-              setEmail(res.data.email)
+              setEmail(res.email)
               history.push('/')
               return res
           }
@@ -101,9 +101,9 @@ const handleLogin = ({email, password}) => {
         .then(([myData, initialCards]) => {
           console.log(myData)
           console.log(initialCards)
-          setCurrentUser(myData.data);
-          if (Array.isArray(initialCards.data)) {
-            setCards(initialCards.data);
+          setCurrentUser(myData);
+          if (Array.isArray(initialCards)) {
+            setCards(initialCards);
           }
         })
         .catch((err) => {
@@ -192,7 +192,7 @@ function handleConfirmDelete(card) {
 function handleAddPlaceSubmit(place) {
   api.addCard(place)
   .then((newCard) => {
-    setCards([newCard.data, ...cards]);
+    setCards([newCard, ...cards]);
     closePopups()
   })
   .catch((err) => {
@@ -206,7 +206,7 @@ function handleUpdateUser(user) {
 
   api.changeUserData(user)
   .then((data) => {
-    setCurrentUser(data.data);
+    setCurrentUser(data);
     closePopups()
   })
   .catch((err) => {
@@ -217,7 +217,7 @@ function handleUpdateUser(user) {
 function handleUpdateAvatar(user) {
   api.editAvatar(user)
   .then((data) => {
-    setCurrentUser(data.data);
+    setCurrentUser(data);
     closePopups()
   })
   .catch((err) => {

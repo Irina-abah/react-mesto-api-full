@@ -11,20 +11,20 @@ const RESPONSE_OK = 200;
 
 const getAllUsers = (req, res, next) => {
   User.find({})
-    .then((users) => res.status(RESPONSE_OK).send({ data: users }))
+    .then((users) => res.status(RESPONSE_OK).send(users))
     .catch(next);
 };
 
 const getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
-    .then((user) => res.status(RESPONSE_OK).send({ data: user }))
+    .then((user) => res.status(RESPONSE_OK).send(user))
     .catch(next);
 };
 
 const getUserById = (req, res, next) => {
   User.findById(req.params.id)
     .orFail(new Error('NotFound'))
-    .then((user) => res.status(RESPONSE_OK).send({ data: user }))
+    .then((user) => res.status(RESPONSE_OK).send(user))
     .catch((err) => {
       if (err.name === 'CastError') {
         throw new BadRequestError('Ошибка в запрашиваемых данных');
@@ -96,7 +96,7 @@ const updateUserInfo = (req, res, next) => {
     runValidators: true,
   })
     .orFail(new Error('NotFound'))
-    .then((user) => res.status(RESPONSE_OK).send({ data: user }))
+    .then((user) => res.status(RESPONSE_OK).send(user))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         throw new BadRequestError('Не удалось обновить информацию о пользователе');
@@ -115,7 +115,7 @@ const updateUserAvatar = (req, res, next) => {
     runValidators: true,
   })
     .orFail(new Error('NotFound'))
-    .then((user) => res.status(RESPONSE_OK).send({ data: user }))
+    .then((user) => res.status(RESPONSE_OK).send(user))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         throw new BadRequestError('Не удалось обновить фотографию пользователя');

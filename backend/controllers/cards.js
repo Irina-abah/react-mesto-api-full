@@ -6,7 +6,7 @@ const RESPONSE_OK = 200;
 
 const getAllCards = (req, res, next) => {
   Card.find({})
-    .then((cards) => res.status(RESPONSE_OK).send({ data: cards }))
+    .then((cards) => res.status(RESPONSE_OK).send(cards))
     .catch(next);
 };
 
@@ -21,7 +21,7 @@ const createCard = (req, res, next) => {
       Card.findById(card._id)
         .populate('owner')
         .populate('likes');
-      res.status(RESPONSE_OK).send({ data: card });
+      res.status(RESPONSE_OK).send(card);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
