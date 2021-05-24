@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.mesto.nomoredomains.club';
+export const BASE_URL = 'https://api.express-mesto.nomoredomains.club';
 // export const BASE_URL = 'http://localhost:3005';
 
 export const register = ({email, password}) => {

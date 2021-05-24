@@ -1,6 +1,6 @@
 {
-  "name": "mesto",
-  "homepage": "https://mesto.nomoredomains.club",
+  "name": "express-mesto",
+  "homepage": "https://express-mesto.nomoredomains.club",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
