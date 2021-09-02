@@ -18,6 +18,7 @@ Back-end:
 * data validation and asynchronous data processing.
 
 **Project navigation**
+
 You can find backend in `backend/` directory and frontend in `frontend/` accordingly. 
 To run backend in development mode, run the command `npm run dev`, production mode - `npm run start`.
 To run frontend in development mode, run the command `npm run start`, to create a production build, use `npm run build`. 
